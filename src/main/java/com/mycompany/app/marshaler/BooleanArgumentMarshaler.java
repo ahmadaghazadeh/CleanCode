@@ -1,15 +1,19 @@
 package com.mycompany.app.marshaler;
 
-public class BooleanArgumentMarshaler extends ArgumentMarshaler {
-    private boolean booleanValue = false;
+import java.util.Iterator;
 
-    @Override
-    public void set(String s) {
-        booleanValue = true;
-    }
+import com.mycompany.app.ArgsException;
+
+public class BooleanArgumentMarshaler implements ArgumentMarshaler {
+    private boolean booleanValue = false;
 
     @Override
     public Object get() {
         return booleanValue;
+    }
+
+    @Override
+    public void set(Iterator<String> currentArgument) throws ArgsException {
+        booleanValue = true;
     }
 }
